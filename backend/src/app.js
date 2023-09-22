@@ -6,7 +6,7 @@ import routerAuth from './routes/auth.routes.js';
 config();
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'http://127.1.1.0:5011',
     optionsSuccessStatus: 200
 }
 
