@@ -1,0 +1,14 @@
+use('login_santiago');
+db.createCollection("usuario", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["email", "password"],
+            properties: {
+                email: { bsonType: "string", description: "'email' is required", pattern: "^[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" },
+                password: { bsonType: "string", description: "'password' is required" },
+            }
+        }
+    }
+});
+db.usuario.createIndex({ email: 1 }, { unique: true });
